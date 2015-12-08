@@ -81,46 +81,6 @@ Para fazer o Redu funcionar em ambiente de desenvolvimento você precisará inst
 - MongoDB 2.0.6
 - Solr 1.4.0
 
-### Coding style
-
-O estilo e padrões de código utilizados estão disponíveis [neste](https://github.com/redu/redu/wiki/Coding-Patterns) guia. Leia com atenção antes de submeter patches.
-
-### Contribuições
-
-#### Pull requests
-
-Os passos para contribuir com a evolução do código, seja para resolução de issue ou criação de features são os seguintes:
-
-1. Criar um branch novo
-2. Realizar mudanças ou adicionar a feature
-3. Commitar mudanças e enviá-las para o remoto
-4. Realizar pull request e atribuir a um revisor
-5. Caso existam revisões: realizar novos commits no mesmo branch criado e enviar para o remoto
-
-Um exemplo de resolução de issue seguiria o seguinte fluxo:
-
-Assumindo que o issue tenha o ID 1300.
-
-```sh
-$ redu (master) > git pull origin master
-$ redu (master) > git checkout -b issue-1300
-$ redu (issue-1300) > git commit -a -m "Minhas modificações"
-$ redu (issue-1300) > git push origin issue-1300
-```
-
-Para mais informações sobre como fazer o pull request, consulte [este](https://help.github.com/articles/using-pull-requests) post.
-
-#### Reportando issues da API
-
-O primeiro passo é decidir em qual repositório criar o issue:
-
-- Para bugs na API HTTP propriamente dita: https://github.com/redu/redu/issues
-- Para bugs na documentação: https://github.com/redu/redu.github.com/issues
-- Para bugs no encapsulador Java: https://github.com/redu/jredu/issues
-- Para bugs no encapsulador Python: https://github.com/redu/redupy/issues
-
-Para problemas na API REST, É importante expressar os problemas em termos de HTTP e não da linguagem utilizada. Por exemplo, ao invés de dizer que o método ``getUsers()`` está lançando null pointer, tentem explicar que uma requisição do tipo GET para ``/api/spaces/1/users`` está retornando o código 500. Fica mais fácil de investigar dessa forma.
-
 ### DelayedJob
 
 O [DelayedJob](https://github.com/collectiveidea/delayed_job) é utilizado como infraestrutura para processamento de tarefas em background.
@@ -221,6 +181,50 @@ $ > /etc/init.d/niginx restart
 #### Cache
 
 Utilizamos o [Memcached](http://memcached.org/) como sistema de *caching*, o [setup](https://support.cloud.engineyard.com/entries/22375358-Using-Memcached-on-Engine-Yard-Cloud) é feito por default pelo Engine Yard (ambiente em *cluster*). Nós apenas configuramos para usar o cliente [Dalli](https://github.com/mperham/dalli) em produção.
+
+# Coding style
+
+O estilo e padrões de código utilizados estão disponíveis [neste](https://github.com/redu/redu/wiki/Coding-Patterns) guia. Leia com atenção antes de submeter patches.
+
+# Contribuições
+
+Todas as contribuições serão analisadas pelos integrantes da comunidade OpenRedu, o código do OpenRedu não está ligado a nenhuma instituição. É um código de software livre.
+
+Um guia muito bom é o do [GitHub](https://guides.github.com/activities/contributing-to-open-source/), ele explica detalhadamente as práticas e como contribuir como projetos de Open Source.
+
+As informações abaixo são só reforços do guia do GitHub.
+
+## Reportando issues
+
+Descreva o issue de forma mais clara possível, sempre usando usando algum casa de uso. Casa haja alguma melhoria de código ou de funcionalidade, tente justificar o motivo.
+
+Sempre tente seguir esse checklist para reportar um issue:
+
+- Adicione um título claro do que se trata o issue
+- Se for um bug, escreva uma descrição mostrando em que ambiente e como aconteceu o erro. Um vídeo ou uma imagem pode ajudar na reprodução do erro.
+- Se for uma melhoria, descreva detalhamente o motivo da melhoria que você pretende adicionar.
+
+### Reportando issues da API
+
+O primeiro passo é decidir em qual repositório criar o issue:
+
+- Para bugs na API HTTP propriamente dita: https://github.com/redu/redu/issues
+- Para bugs na documentação: https://github.com/redu/redu.github.com/issues
+- Para bugs no encapsulador Java: https://github.com/redu/jredu/issues
+- Para bugs no encapsulador Python: https://github.com/redu/redupy/issues
+
+Para problemas na API REST, é importante expressar os problemas em termos de HTTP e não da linguagem utilizada. Por exemplo, ao invés de dizer que o método ``getUsers()`` está lançando null pointer, tentem explicar que uma requisição do tipo GET para ``/api/spaces/1/users`` está retornando o código 500. Fica mais fácil de investigar dessa forma.
+
+## Pull requests
+
+Os passos para contribuir com a evolução do código, seja para resolução de issue ou criação de features são os seguintes:
+
+1. Fork do projeto no GitHub
+2. Criar um branch próprio para o problema
+2. Realizar mudanças ou adicionar a feature
+3. Commitar mudanças e enviá-las para o remoto do seu repositório
+4. Realizar pull request
+5. Caso existam revisões: realizar novos commits no mesmo branch criado e enviar para o remoto
 
 # Espaço utilizado
 
